@@ -1,1 +1,56 @@
-<p>create-account works!</p>
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <h2>Create Account</h2><br/>
+        <form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="accountName">Account Name</label>
+                <input
+                type="text"
+                id="accountName"
+                formControlName="accountName"
+                class="form-control"/>
+                <p
+                *ngIf="!createAccountForm.get('accountName')?.valid && 
+                createAccountForm.get('accountName')?.touched"
+                class="text-danger">Please enter a valid Account Name</p>
+            </div>
+            <div class="form-group">
+                <label for="accountNumber">Account Number</label>
+                <input
+                type="number"
+                id="accountNumber"
+                formControlName="accountNumber"
+                class="form-control"/>
+                <p
+                *ngIf="!createAccountForm.get('accountNumber')?.valid && 
+                createAccountForm.get('accountNumber')?.touched"
+                class="text-danger">Please enter a valid Account Number</p>
+            </div>
+            <div class="form-group">
+                <label for="accountType">Account Type</label>
+                <select name="accountType" id="accountType" class="form-control">
+                    <option *ngFor="let accountType of accountTypeList" [value]="accountType">{{accountType}}</option>
+                  </select>
+                <p
+                *ngIf="!createAccountForm.get('accountType')?.valid && 
+                createAccountForm.get('accountType')?.touched"
+                class="text-danger">Please enter a valid Account Type</p>
+            </div>
+            <div class="form-group">
+                <label for="balance">Balance</label>
+                <input
+                type="number" 
+                step="any"
+                min="0" 
+                id="balance"
+                formControlName="balance"
+                class="form-control"/>
+                <p
+                *ngIf="!createAccountForm.get('balance')?.valid && 
+                createAccountForm.get('balance')?.touched"
+                class="text-danger">Please enter a valid Balance</p>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
