@@ -8,14 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { AppRoutingModule } from './app-routing-module';
-
-
+import { AccountListComponent } from './account-list/account-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AccountListComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +26,8 @@ import { AppRoutingModule } from './app-routing-module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
