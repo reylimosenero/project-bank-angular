@@ -1,0 +1,4 @@
+<div [className]="'alert alert-'+alertType+' alert-dismissible'" *ngIf="isShow">
+    <a href="#" class="close" onClick="" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{alertType | titlecase}}!</strong> {{message}}
+  </div>

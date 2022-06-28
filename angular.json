@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "project-bank-angular"
+  "defaultProject": "project-bank-angular",
+  "cli": {
+    "analytics": false
+  }
 }
