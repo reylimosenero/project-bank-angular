@@ -4,7 +4,7 @@ export interface Account {
     id?: number;
     name: string;
     acctNumber?: string;
-    type: AccountTypeEnum;
+    type: String;
     balance?: number;
   }
   

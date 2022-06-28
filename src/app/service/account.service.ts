@@ -12,7 +12,7 @@ export class AccountService {
 
     constructor(private http: HttpClient) { }
 
-  save(name: string, accountType: AccountTypeEnum): Observable<any> {
+  save(name: string, accountType: String): Observable<any> {
     const postData: Account = {name: name, type: accountType};
 
     return this.http.post<Account>(
@@ -26,5 +26,22 @@ export class AccountService {
   getAll(params: any): Observable<any> {
      return this.http.get<any>(baseUrl, { params });
   }
+
+  get(id: number): Observable<any> {
+    return this.http.get<any>(baseUrl + '/'+ id);
+ }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(baseUrl + '/'+ id);
+ }
+
+ update(account: Account): Observable<any> {
+
+  return this.http.put<Account>(
+      baseUrl, account,
+      {
+          observe: 'response'
+      });
+}
     
 }
