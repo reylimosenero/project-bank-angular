@@ -3,6 +3,7 @@ import { Account } from '../model/account';
 import { AccountService } from '../service/account.service';
 import { AlertComponent } from '../alert/alert.component';
 import { AlertType } from '../enums/AlertType';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-list',
@@ -17,7 +18,9 @@ export class AccountListComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3,6,9];
 
-  constructor(private accountService: AccountService) {}
+  constructor(private accountService: AccountService,
+    private route:ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.retrieveAccounts();
@@ -60,6 +63,27 @@ export class AccountListComponent implements OnInit {
     this.pageSize = event.target.value;
     this.page = 1;
     this.retrieveAccounts();
+  }
+
+  editAccount(account: Account): void {
+    this.router.navigate(['edit' +'/' + account.id], {relativeTo: this.route, 
+      queryParamsHandling: 'preserve'});
+  }
+
+  deleteAccount(account: Account): void {
+    console.log(account);
+    this.accountService.delete(account.id? account.id : 0).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.alertComponent.showAlert(AlertType.SUCCESS, "Success deleted...");
+        this.retrieveAccounts();
+      },
+      error: (e) => {
+        console.error(e)
+        this.alertComponent.showAlert(AlertType.DANGER, 'Error Deleting Account List...');
+      },
+      complete: () => console.info('complete')
+    });
   }
 
 }

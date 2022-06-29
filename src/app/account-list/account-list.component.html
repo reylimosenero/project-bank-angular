@@ -10,6 +10,7 @@
             <th>Account Number</th>
             <th>Account Type</th>
             <th>Balance</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +24,9 @@
             <td>{{account.acctNumber}}</td>
             <td>{{account.type}}</td>
             <td>{{account.balance}}</td>
+            <td><app-edit-delete-button [value]="account" 
+              (delete)="deleteAccount($event)" 
+              (edit)="editAccount($event)"></app-edit-delete-button></td>
           </tr>
         </tbody>
       </table>
