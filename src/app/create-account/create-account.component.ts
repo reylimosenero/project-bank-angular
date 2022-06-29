@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccountTypeEnum } from '../enums/AccountTypeEnum';
 import { AccountTypeUtility } from '../enums/AccountTypeUtility';
@@ -12,13 +12,14 @@ import { AlertType } from '../enums/AlertType';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-  accountTypeList: AccountTypeEnum[] = AccountTypeUtility.getListAccounts();
+  accountTypeList: String[] = AccountTypeUtility.getListAccounts();
   createAccountForm: FormGroup;
   @ViewChild('alertComponent', {static: false}) alertComponent: AlertComponent;
 
   constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
+    console.log(this.accountTypeList);
     this.createAccountForm = new FormGroup({
       'name': new FormControl('', [Validators.required]),
       'acctType': new FormControl(AccountTypeEnum.CHECKINGS, [Validators.required]),

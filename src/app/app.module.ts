@@ -12,6 +12,8 @@ import { AccountListComponent } from './account-list/account-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AlertComponent } from './alert/alert.component';
 import { GetAccountComponent } from './get-account/get-account.component';
+import { EditDeleteButtonComponent } from './edit-delete-button/edit-delete-button.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { GetAccountComponent } from './get-account/get-account.component';
     CreateAccountComponent,
     AccountListComponent,
     AlertComponent,
-    GetAccountComponent
-    
+    GetAccountComponent,    
+    EditDeleteButtonComponent,
+    EditAccountComponent
   ],
   imports: [
     BrowserModule,
