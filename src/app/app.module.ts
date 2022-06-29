@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { AccountListComponent } from './account-list/account-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AlertComponent } from './alert/alert.component';
+import { GetAccountComponent } from './get-account/get-account.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { AlertComponent } from './alert/alert.component';
     HeaderComponent,
     CreateAccountComponent,
     AccountListComponent,
-    AlertComponent
+    AlertComponent,
+    GetAccountComponent
+    
   ],
   imports: [
     BrowserModule,
