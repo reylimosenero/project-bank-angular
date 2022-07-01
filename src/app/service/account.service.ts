@@ -4,6 +4,7 @@ import { catchError, Observable } from 'rxjs';
 import { Account } from '../model/account';
 import { AccountTypeEnum } from '../enums/AccountTypeEnum';
 import { Subject, throwError } from "rxjs";
+import { Deposit } from '../model/deposit';
 
 const baseUrl = 'http://localhost:8080/api/v1/accounts';
 
@@ -37,11 +38,19 @@ export class AccountService {
 
  update(account: Account): Observable<any> {
 
-  return this.http.put<Account>(
-      baseUrl, account,
-      {
-          observe: 'response'
-      });
+    return this.http.put<Account>(
+        baseUrl, account,
+        {
+            observe: 'response'
+        });
 }
+
+depositWithdrawAccount(deposit: Deposit, id: number): Observable<any> {
+  return this.http.post<any>(baseUrl + '/'+ id + '/transactions', deposit, 
+  {
+    observe: 'response'
+  });
+}
+
     
 }
