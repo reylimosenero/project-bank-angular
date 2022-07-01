@@ -27,6 +27,14 @@ export class AccountService {
   getAll(params: any): Observable<any> {
      return this.http.get<any>(baseUrl, { params });
   }
+ 
+  getAccountById(accNo: number): Observable<any> {
+
+    let getUrl = baseUrl+"/number/"+accNo;
+    console.log("UR: " + getUrl);
+
+    return this.http.get<number>(getUrl, {observe: 'response'});
+ }
 
   get(id: number): Observable<any> {
     return this.http.get<any>(baseUrl + '/'+ id);

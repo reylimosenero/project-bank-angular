@@ -37,8 +37,8 @@ export class DepositWithdrawAccountComponent implements OnInit {
       complete: () => console.info('complete')
     });
     this.withdrawDepositAccountForm = new FormGroup({
-      'accountId': new FormControl(null, [Validators.required]),
-      'balance': new FormControl(null, [Validators.required]),
+      'acctId': new FormControl(null, [Validators.required]),
+      'amount': new FormControl(null, [Validators.required]),
     });
   }
 
