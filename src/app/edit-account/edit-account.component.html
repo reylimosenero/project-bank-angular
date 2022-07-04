@@ -23,6 +23,10 @@
                 <label >Account Number</label><br>
                 <p>{{account?.acctNumber}}</p>
             </div>
+            <div class="form-group">
+                <label >Balance</label><br>
+                <p>{{account?.balance}}</p>
+            </div>
             <button class="btn btn-primary" type="submit" 
             [disabled]="!editAccountForm.valid">Submit</button>
         </form>
