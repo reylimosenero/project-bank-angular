@@ -6,15 +6,14 @@ import { Account } from '../model/account';
 import { AccountService } from '../service/account.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-edit-account',
-  templateUrl: './edit-account.component.html',
-  styleUrls: ['./edit-account.component.css']
+  selector: 'app-view-account',
+  templateUrl: './view-account.component.html',
+  styleUrls: ['./view-account.component.css']
 })
-export class EditAccountComponent implements OnInit {
+export class ViewAccountComponent implements OnInit {
 
-  editAccountForm: FormGroup;
+  viewAccountForm: FormGroup;
   @ViewChild('alertComponent', {static: false}) alertComponent: AlertComponent;
   account: Account;
 
@@ -22,7 +21,7 @@ export class EditAccountComponent implements OnInit {
     private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.editAccountForm = new FormGroup({
+    this.viewAccountForm = new FormGroup({
       'name': new FormControl('', [Validators.required]),
     });
     this.retrieveAccounts();
@@ -36,7 +35,7 @@ export class EditAccountComponent implements OnInit {
       next: (response) => {
         console.log(response);
         this.account = response;
-        this.editAccountForm.patchValue({
+        this.viewAccountForm.patchValue({
           'name': this.account.name
         });
       },
@@ -49,7 +48,7 @@ export class EditAccountComponent implements OnInit {
   }
 
   onSubmit() {
-    this.account.name = this.editAccountForm.get('name')?.value;
+    this.account.name = this.viewAccountForm.get('name')?.value;
     this.accountService.update(this.account).subscribe({
       next: (response) => {
         this.alertComponent.showAlert(AlertType.SUCCESS, 

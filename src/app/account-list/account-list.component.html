@@ -25,6 +25,7 @@
             <td>{{account.type}}</td>
             <td>{{account.balance}}</td>
             <td><app-edit-delete-button [value]="account" 
+              (view)="viewAccount($event)"
               (delete)="deleteAccount($event)" 
               (edit)="editAccount($event)"></app-edit-delete-button></td>
           </tr>
