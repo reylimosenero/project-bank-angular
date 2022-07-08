@@ -14,6 +14,8 @@ import { AlertComponent } from './alert/alert.component';
 import { GetAccountComponent } from './get-account/get-account.component';
 import { EditDeleteButtonComponent } from './edit-delete-button/edit-delete-button.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
+// import { DepositWithdrawAccountComponent } from './deposit-withdraw-account/deposit-withdraw-account.component';
+import { ViewAccountComponent } from './view-account/view-account.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EditAccountComponent } from './edit-account/edit-account.component';
     AlertComponent,
     GetAccountComponent,    
     EditDeleteButtonComponent,
-    EditAccountComponent
+    EditAccountComponent,
+    // DepositWithdrawAccountComponent,
+    ViewAccountComponent
   ],
   imports: [
     BrowserModule,

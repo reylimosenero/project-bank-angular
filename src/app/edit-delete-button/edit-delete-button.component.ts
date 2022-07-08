@@ -10,6 +10,7 @@ export class EditDeleteButtonComponent implements OnInit {
   @Input ('value') value: any;
   @Output ('delete') delete = new EventEmitter<any>();
   @Output ('edit') edit = new EventEmitter<any>();
+  @Output ('view') view = new EventEmitter<any>();
 
 
   constructor() { }
@@ -17,9 +18,14 @@ export class EditDeleteButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onView(){
+    this.view.emit(this.value);
+  }
+
   onEdit() {
     this.edit.emit(this.value);
   }
+  
 
   onDelete() {
     this.delete.emit(this.value);
