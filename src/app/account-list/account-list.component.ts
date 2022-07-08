@@ -65,7 +65,13 @@ export class AccountListComponent implements OnInit {
     this.retrieveAccounts();
   }
 
-  editAccount(account: Account): void {
+  viewAccount(account: Account): void {
+    console.log("ViewAccount ID: "+ account.id)
+    this.router.navigate(['view' +'/' + account.id], {relativeTo: this.route, 
+      queryParamsHandling: 'preserve'});
+  }
+
+  editAccount(account: any): void {
     this.router.navigate(['edit' +'/' + account.id], {relativeTo: this.route, 
       queryParamsHandling: 'preserve'});
   }
