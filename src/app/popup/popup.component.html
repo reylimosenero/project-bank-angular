@@ -1,0 +1,88 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{frmName}}</h4>
+      <button type="button" #closebtn class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+      <form [formGroup]="frmBudget" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" id="id" formControlName="id" class="form-control" />
+          <label for="client">Client Name</label>
+          <input
+            type="text"
+            id="client"
+            formControlName="client"
+            class="form-control"
+          />
+          <label for="projectName">Project Name</label>
+          <input
+            type="text"
+            id="projectName"
+            formControlName="projectName"
+            class="form-control"
+          />
+          <label for="scopeOfWork">Scope of Work</label>
+          <input
+            type="text"
+            id="scopeOfWork"
+            formControlName="scopeOfWork"
+            class="form-control"
+          />
+          <label for="supplier">Supplier</label>
+          <input
+            type="text"
+            id="supplier"
+            formControlName="supplier"
+            class="form-control"
+          />
+          <label for="amount">Amount</label>
+          <input
+            type="text"
+            id="amount"
+            formControlName="amount"
+            class="form-control"
+          />
+          <label for="downPayment">DP</label>
+          <input
+            type="text"
+            id="downPayment"
+            formControlName="downPayment"
+            class="form-control"
+          />
+          <label for="date">Date</label>
+          <input
+            type="text"
+            id="date"
+            formControlName="date"
+            class="form-control"
+          />
+          <label for="balance">Balance</label>
+          <input
+            type="text"
+            id="balance"
+            formControlName="balance"
+            class="form-control"
+          />
+          <label for="status">Bal Status</label>
+          <input
+            type="text"
+            id="status"
+            formControlName="status"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+  </div>
+  <div class="modal-footer">
+      <button style="display: none;" type="button" class="btn btn-outline-dark"
+          (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-warning" #popupbtn id="popupbtn" (click)="open()">Add New</button>
+
+<hr>
+
+<pre></pre>
