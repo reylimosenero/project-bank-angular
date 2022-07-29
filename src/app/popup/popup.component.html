@@ -1,0 +1,230 @@
+<ng-template #templateBudget let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ frmName }}</h4>
+    <button
+      type="button"
+      #closebtn
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="frmBudget" (ngSubmit)="onSubmit()">
+      <p>{{ showBudget }}</p>
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" id="id" formControlName="id" class="form-control" />
+        <label>Client Name</label>
+        <input
+          type="text"
+          id="clientName"
+          formControlName="clientName"
+          class="form-control"
+        />
+        <label for="projectName">Project Name</label>
+        <input
+          type="text"
+          id="projectName"
+          formControlName="projectName"
+          class="form-control"
+        />
+        <label for="requestType">Request Type</label>
+        <input
+          type="text"
+          id="requestType"
+          formControlName="requestType"
+          class="form-control"
+        />
+        <label>Supplier Name</label>
+        <input
+          type="text"
+          id="supplierName"
+          formControlName="supplierName"
+          class="form-control"
+        />
+        <label>Bank Details</label>
+        <input
+          type="text"
+          id="bankDetails"
+          formControlName="bankDetails"
+          class="form-control"
+        />
+        <label>Wallet</label>
+        <input
+          type="text"
+          id="wallet"
+          formControlName="wallet"
+          class="form-control"
+        />
+        <label for="totAmount">Amount</label>
+        <input
+          type="text"
+          id="totAmount"
+          formControlName="totAmount"
+          class="form-control"
+        />
+        <label>Request Date</label>
+        <input
+          type="text"
+          id="requestDate"
+          formControlName="requestDate"
+          class="form-control"
+        />
+        <label>DP</label>
+        <input
+          type="text"
+          id="downPayment"
+          formControlName="downPayment"
+          class="form-control"
+        />
+        <label>Dp Date</label>
+        <input
+          type="text"
+          id="dpDate"
+          formControlName="dpDate"
+          class="form-control"
+        />
+        <label for="balance">Balance</label>
+        <input
+          type="text"
+          id="balance"
+          formControlName="balance"
+          class="form-control"
+        />
+        <label>Paid Date</label>
+        <input
+          type="text"
+          id="paidDate"
+          formControlName="paidDate"
+          class="form-control"
+        />
+        <label for="status">Bal Status</label>
+        <input
+          type="text"
+          id="status"
+          formControlName="status"
+          class="form-control"
+        />
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      style="display: none"
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<br />
+<br />
+
+<ng-container *ngIf="showBudget; else showProjectBtn">
+  <button class="btn btn-info mt-4" (click)="open()">New Budget</button>
+</ng-container>
+
+<ng-template #templateProject let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ frmName }}</h4>
+    <button
+      type="button"
+      #closebtn
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="frmProject" (ngSubmit)="submitProject()">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" id="id" formControlName="id" class="form-control" />
+        <label for="client">Client Name</label>
+        <input
+          type="text"
+          id="client"
+          formControlName="clientName"
+          class="form-control"
+        />
+        <label for="projectName">Project Name</label>
+        <input
+          type="text"
+          id="projectName"
+          formControlName="projectName"
+          class="form-control"
+        />
+        <label>Unit</label>
+        <input
+          type="text"
+          id="uom"
+          formControlName="uom"
+          class="form-control"
+        />
+        <label for="quantity">Quantity</label>
+        <input
+          type="text"
+          id="supplier"
+          formControlName="quantity"
+          class="form-control"
+        />
+        <label>Date Inquired</label>
+        <input
+          type="text"
+          id="amount"
+          formControlName="dateInquiry"
+          class="form-control"
+        />
+        <label>Date Started</label>
+        <input
+          type="text"
+          id="downPayment"
+          formControlName="dateTimeStarted"
+          class="form-control"
+        />
+        <label for="date">Date Delivered</label>
+        <input
+          type="text"
+          id="date"
+          formControlName="dateTimeDelivered"
+          class="form-control"
+        />
+
+        <label for="status">Status</label>
+        <input
+          type="text"
+          id="status"
+          formControlName="status"
+          class="form-control"
+        />
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      style="display: none"
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #showProjectBtn>
+  <button
+    class="btn btn-info mt-4"
+    #popupbtn1
+    id="popupbtn1"
+    (click)="popProject()"
+  >
+    New Project
+  </button>
+</ng-template>

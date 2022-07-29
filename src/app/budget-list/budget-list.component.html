@@ -1,0 +1,46 @@
+<app-popup></app-popup>
+<h1>Budgets</h1>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr class="table-primary">
+            <th>ID</th>
+            <th>Client Name</th>
+            <th>Project Name</th>
+            <th>Request Type</th>
+            <th>Supplier Name</th>
+            <th>Bank Details</th>
+            <th>Gcash/wallet</th>
+            <th> Amount</th>
+            <th>Request Date</th>
+            <th>Down Payment</th>
+            <th>DP Date</th>
+            <th>Balance</th>
+            <th>Date Paid</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let budget of budgetList">
+
+            <td>{{budget.id}}</td>
+            <td>{{budget.clientName}}</td>
+            <td>{{budget.projectName}}</td>
+            <td>{{budget.requestType}}</td>
+            <td>{{budget.supplierName}}</td>
+            <td>{{budget.bankDetails}}</td>
+            <td>{{budget.wallet}}</td>
+            <td>{{budget.totAmount | currency:'PHP':'symbol-narrow'}}</td>
+            <td>{{budget.requestDate}}</td>
+            <td>{{budget.downPayment | currency:'PHP'}}</td>
+            <td>{{budget.dpDate}}</td>
+            <td>{{budget.balance | currency:'PHP'}}</td>
+            <td>{{budget.paidDate|date}}</td>
+            <td [ngStyle]="{'background-color': 'paid'=== budget.status? 'green' : 'red'}">{{budget.status}}</td>
+            <td>
+              <a class="btn btn-primary" (click)="onEdit(budget.id)">Edit</a>
+              <a class="btn btn-danger mb-left=2px" (click)="onDelete(budget.id)" >Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
